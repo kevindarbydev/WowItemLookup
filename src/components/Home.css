@@ -1,0 +1,33 @@
+body{
+    background-color: #411317;
+}
+.container{
+    border-radius: 25px;        
+   background-color: #291c64;
+    width:60vw;
+    height:400px;
+    margin-top: 10%;
+    margin-left:20%;
+}
+
+h3{
+    text-align: center;
+    color:white;
+    
+}
+input{
+    align-self: center;
+}
+.title{
+    color:white;
+    text-align: center;
+}
+.icon{
+    margin-left: 40%;
+}
+form input[type="submit"]{
+    margin-left:40%;
+}
+form input[type="text"]{
+    margin-left:20%;
+}
