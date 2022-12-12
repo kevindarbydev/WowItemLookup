@@ -3,9 +3,7 @@ import { json } from "react-router-dom";
 import "./Home.css"
 
 function Home() {
-  //key: "c6cfae1d673547759d6fb162a9c7a62a",
-  // secret: "iVC6Zreg5LScAMfyLcmz3cDhumlUHMvz",
-  //access USa9laI45nBAvOigYCZYqkEbQAA1ckS61f
+ 
   const idRef = useRef();
 
   const handleSubmit = (event) => {
