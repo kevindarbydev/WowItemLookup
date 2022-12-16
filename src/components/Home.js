@@ -1,69 +1,65 @@
-import React, { useRef } from "react";
-import { json } from "react-router-dom";
-import "./Home.css"
+import React, { useState, useEffect } from "react";
+import "./Home.css";
 
 function Home() {
- 
-  const idRef = useRef();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const received = idRef.current.value;;
+  const [id, setId] = useState("19019");
+  const [icon, setIcon] = useState("");
+  const [item, setItem] = useState(
+    "Thunderfury, Blessed Blade of the Windseeker"
+  );
+  useEffect(() => {
     
-    fetch(
-      "https://us.api.blizzard.com/data/wow/media/item/" +
-        received +
-        "?namespace=static-classic-us&locale=en_US&access_token=USa9laI45nBAvOigYCZYqkEbQAA1ckS61f",
-      {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    )
-      .then((data) => data.json())
-      .then((json) => {
-        displayData(json.assets[0].value, received);
-      })
-      .then((json) => console.log(json));
-  };
+      fetch(
+        "https://us.api.blizzard.com/data/wow/media/item/" +
+          id +
+          "?namespace=static-classic-us&locale=en_US&access_token=USryat4liGKBL1nM11uM7HkXsCf0Mjx5hN",
+        {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
+        .then((data) => data.json())
+        .then((json) => {
+         // console.log(json);
+
+          setIcon(json.assets[0].value);
+          //console.log(json.id);
+          fetch(
+            "https://us.api.blizzard.com/data/wow/item/" +
+              json.id +
+              "?namespace=static-classic-us&locale=en_US&access_token=USryat4liGKBL1nM11uM7HkXsCf0Mjx5hN",
+            {
+              method: "GET",
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+            }
+          ).then((data) => data.json())
+          .then((json) => {
+           // console.log(json.name);         
+            setItem(json.name);  
+          });
+        });    
+  });
 
   return (
     <>
       <div className="container">
-        <h3>Enter a world of warcraft item ID:</h3>
-        <form onSubmit={handleSubmit}>
-          <input ref={idRef} id="inputId" type="text" /> <br />
-          <input type="submit" value="Enter" />
-        </form>
-        <img src="" className="icon"  />
-        <p className="title"></p>
+        <h2>Enter a world of warcraft item ID:</h2>
+        {id ? <img src={icon} className="icon" /> : null}
+        <p>{item}</p>
+        <p>Current value: {id}</p>
+        <input
+          onChange={(e) => setId(e.target.value)}
+          id="inputId"
+          type="text"
+        />{" "}
+        <br />
       </div>
     </>
   );
 }
 
 export default Home;
-
-function displayData(data, id) {
-  fetch(
-    "https://us.api.blizzard.com/data/wow/item/" +
-      id +
-      "?namespace=static-classic-us&locale=en_US&access_token=USsPm6jQZbfS3rZ4PrGb5n42kB0qBheeMx",
-    {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    }
-  )
-    .then((data) => data.json())
-    .then((json) => {
-      document.querySelector(".title").innerHTML = json.name;
-    });
-
-  const icon = data;
-  const name = json.name;
-  document.querySelector(".icon").src = icon;
-  document.querySelector(".title").innerHTML = name;
-}
