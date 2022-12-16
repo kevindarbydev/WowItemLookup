@@ -10,6 +10,7 @@ function Home() {
   useEffect(() => {
     
       fetch(
+        //gets Thunderfury by default, first query is for the icon, secondary query is for the item name
         "https://us.api.blizzard.com/data/wow/media/item/" +
           id +
           "?namespace=static-classic-us&locale=en_US&access_token=USryat4liGKBL1nM11uM7HkXsCf0Mjx5hN",
@@ -47,15 +48,16 @@ function Home() {
   return (
     <>
       <div className="container">
-        <h2>Enter a world of warcraft item ID:</h2>
-        {id ? <img src={icon} className="icon" /> : null}
-        <p>{item}</p>
-        <p>Current value: {id}</p>
-        <input
-          onChange={(e) => setId(e.target.value)}
-          id="inputId"
-          type="text"
-        />{" "}
+        <h2 className="heading">Enter a world of warcraft item ID:</h2>
+        <div className="subcontainer">
+          {id ? <img src={icon} className="icon" /> : null}
+          <p>{item}</p>
+          <input
+            onChange={(e) => setId(e.target.value)}
+            id="inputId"
+            type="text"
+          />{" "}
+        </div>
         <br />
       </div>
     </>

@@ -1,25 +1,65 @@
-body{
-    background-color: #411317;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*  style="background-color: " */
+body {
+  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   background: url('../assets/barrensImg.jpg') no-repeat center center/cover;
+ 
+  width: 100%;
+  height: 100vh;
+  
+  z-index: -1;
 }
+
+
 .container{
     border-radius: 25px;        
-   background-color: #291c64;
-    width:60vw;
+   background-color: #a72934;
+   opacity: 0.7;
+   width:20vw;
+    
     height:400px;
     margin-top: 10%;
     margin-left:20%;
 }
 .container h2{
+    
    text-align: center;
     color:white;   
+     margin-top: 20%;
 }
 .container p {
     color: white;
     text-align: center;
 }
+.subcontainer{
+    margin-top: 5rem;
+}
 .icon{
-    margin-left: 45%;
+    margin-left: 47%;
+    margin-bottom: .5rem;
 }
 input[type="text"]{
     margin-left:42%;
+}
+@media only screen and (max-width: 768px){
+  input[type="text"]{
+    margin-left:33%;
+}
+    .container{
+    border-radius: 25px;        
+   background-color: #a72934;
+   opacity: 0.7;
+   
+    
+    height:300px;
+    margin-top: 10%;
+    margin-left:20%;
+}
+.subcontainer{
+    margin-top: 2.5rem;
+}
 }
