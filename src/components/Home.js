@@ -46,7 +46,7 @@ function Home() {
       <div className="container">
         <h2 className="heading">Enter a world of warcraft item ID:</h2>
         <div className="subcontainer">
-          {id ? <img src={icon} className="icon" alt="The image assosciated with a given wow item ID" /> : null}
+          {id ? <img src={icon} className="icon" alt="The icon associated with a given wow item ID" /> : null}
           <p>{item}</p>
           <input
             onChange={(e) => setId(e.target.value)}
