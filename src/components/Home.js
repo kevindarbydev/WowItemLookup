@@ -7,13 +7,12 @@ function Home() {
   const [item, setItem] = useState(
     "Thunderfury, Blessed Blade of the Windseeker"
   );
-  useEffect(() => {
-    
+  useEffect(() => {    
       fetch(
         //gets Thunderfury by default, first query is for the icon, secondary query is for the item name
         "https://us.api.blizzard.com/data/wow/media/item/" +
           id +
-          "?namespace=static-classic-us&locale=en_US&access_token=USryat4liGKBL1nM11uM7HkXsCf0Mjx5hN",
+          "?namespace=static-classic-us&locale=en_US&access_token=USlWRlM26Es3m7BHKIn47Xf2x42GaWCucu",
         {
           method: "GET",
           headers: {
@@ -23,25 +22,22 @@ function Home() {
       )
         .then((data) => data.json())
         .then((json) => {
-         // console.log(json);
-
           setIcon(json.assets[0].value);
-          //console.log(json.id);
           fetch(
             "https://us.api.blizzard.com/data/wow/item/" +
               json.id +
-              "?namespace=static-classic-us&locale=en_US&access_token=USryat4liGKBL1nM11uM7HkXsCf0Mjx5hN",
+              "?namespace=static-classic-us&locale=en_US&access_token=USlWRlM26Es3m7BHKIn47Xf2x42GaWCucu",
             {
               method: "GET",
               headers: {
                 "Content-type": "application/json; charset=UTF-8",
               },
             }
-          ).then((data) => data.json())
-          .then((json) => {
-           // console.log(json.name);         
-            setItem(json.name);  
-          });
+          )
+            .then((data) => data.json())
+            .then((json) => {
+              setItem(json.name);
+            });
         });    
   });
 
