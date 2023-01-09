@@ -12,7 +12,7 @@ function Home() {
         //gets Thunderfury by default, first query is for the icon, secondary query is for the item name
         "https://us.api.blizzard.com/data/wow/media/item/" +
           id +
-          "?namespace=static-classic-us&locale=en_US&access_token=USlWRlM26Es3m7BHKIn47Xf2x42GaWCucu",
+          "?namespace=static-classic-us&locale=en_US&access_token=USNskXFCrXVCqE49TlyCVmPL33q2D1c5X7",
         {
           method: "GET",
           headers: {
@@ -26,7 +26,7 @@ function Home() {
           fetch(
             "https://us.api.blizzard.com/data/wow/item/" +
               json.id +
-              "?namespace=static-classic-us&locale=en_US&access_token=USlWRlM26Es3m7BHKIn47Xf2x42GaWCucu",
+              "?namespace=static-classic-us&locale=en_US&access_token=USNskXFCrXVCqE49TlyCVmPL33q2D1c5X7",
             {
               method: "GET",
               headers: {
@@ -46,7 +46,7 @@ function Home() {
       <div className="container">
         <h2 className="heading">Enter a world of warcraft item ID:</h2>
         <div className="subcontainer">
-          {id ? <img src={icon} className="icon" alt="The icon associated with a given wow item ID" /> : null}
+          {id ? <img src={icon} className="icon" alt="If this text is visible that means the API key is expired. Check back soon!" /> : null}
           <p>{item}</p>
           <input
             onChange={(e) => setId(e.target.value)}
