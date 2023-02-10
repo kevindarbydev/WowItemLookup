@@ -48,7 +48,13 @@ function Home() {
       <div className="container">
         <h2 className="heading">Enter a world of warcraft item ID:</h2>
         <div className="subcontainer">
-          {id ? <img src={icon} className="icon" alt="If this text is visible that means the API key is expired. Check back soon!" /> : null}
+          {id ? (
+            <img
+              src={icon}
+              className="icon"
+              alt="If this text is visible that means the API key is expired. Check back soon!"
+            />
+          ) : null}
           <p>{item}</p>
           <input
             onChange={(e) => setId(e.target.value)}
@@ -57,6 +63,14 @@ function Home() {
           />{" "}
         </div>
         <br />
+        <p>
+          Most Classic WOW item IDs are in the range of 5000-50000. Try a few
+          out and see what you find! <br />{" "}
+          <span>
+            This project was meant purely to practice working with APIs in
+            React.
+          </span>
+        </p>
       </div>
     </>
   );
