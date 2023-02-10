@@ -7,12 +7,14 @@ function Home() {
   const [item, setItem] = useState(
     "Thunderfury, Blessed Blade of the Windseeker"
   );
+  console.log(process.env.API_KEY);
+  const API_KEY = process.env.API_KEY;
   useEffect(() => {    
       fetch(
         //gets Thunderfury by default, first query is for the icon, secondary query is for the item name
         "https://us.api.blizzard.com/data/wow/media/item/" +
           id +
-          "?namespace=static-classic-us&locale=en_US&access_token=USNskXFCrXVCqE49TlyCVmPL33q2D1c5X7",
+          `?namespace=static-classic-us&locale=en_US&access_token=USmlJU6wyklYR5GgppcFFOHfST3JgvGcKA`,
         {
           method: "GET",
           headers: {
@@ -26,7 +28,7 @@ function Home() {
           fetch(
             "https://us.api.blizzard.com/data/wow/item/" +
               json.id +
-              `?namespace=static-classic-us&locale=en_US&access_token=${process.env.API_KEY}`,
+              `?namespace=static-classic-us&locale=en_US&access_token=USmlJU6wyklYR5GgppcFFOHfST3JgvGcKA`,
             {
               method: "GET",
               headers: {

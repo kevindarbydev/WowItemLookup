@@ -1,9 +1,4 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
-
-var BnetStrategy = require("passport-bnet").Strategy;
-var BNET_ID = process.env.BNET_ID;
-var BNET_SECRET = process.env.BNET_SECRET;
+import "dotenv/config";
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -14,12 +9,7 @@ app.use(cors()); // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
 //curl -u {client_id}:{client_secret} -d grant_type=client_credentials https://oauth.battle.net/token
 
-
-
-
-
 app.use(express.json()); // Allows express to read a request body
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
