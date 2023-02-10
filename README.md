@@ -1,6 +1,10 @@
 # World of Warcraft Item Look-Up 
 ### Uses React.js and Battle.net developer API functions
 Enter an item id (4-5 digits) to see it's name and icon
+
+dotenv is giving me issues so all developer credentials are exposed for now,
+will fix when im less busy
+
 ## To run locally, you will need to generate an access token
 ### To do so, open a terminal and paste this command:
 ```

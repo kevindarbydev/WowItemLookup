@@ -7,8 +7,8 @@ function Home() {
   const [item, setItem] = useState(
     "Thunderfury, Blessed Blade of the Windseeker"
   );
-  console.log(process.env.API_KEY);
-  const API_KEY = process.env.API_KEY;
+  // console.log(process.env.API_KEY);
+  // const API_KEY = process.env.API_KEY;
   useEffect(() => {    
       fetch(
         //gets Thunderfury by default, first query is for the icon, secondary query is for the item name
