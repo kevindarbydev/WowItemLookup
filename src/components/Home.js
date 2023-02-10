@@ -26,7 +26,7 @@ function Home() {
           fetch(
             "https://us.api.blizzard.com/data/wow/item/" +
               json.id +
-              "?namespace=static-classic-us&locale=en_US&access_token=USNskXFCrXVCqE49TlyCVmPL33q2D1c5X7",
+              `?namespace=static-classic-us&locale=en_US&access_token=${process.env.API_KEY}`,
             {
               method: "GET",
               headers: {
