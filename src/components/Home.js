@@ -14,7 +14,7 @@ function Home() {
         //gets Thunderfury by default, first query is for the icon, secondary query is for the item name
         "https://us.api.blizzard.com/data/wow/media/item/" +
           id +
-          `?namespace=static-classic-us&locale=en_US&access_token=USmlJU6wyklYR5GgppcFFOHfST3JgvGcKA`,
+          `?namespace=static-classic-us&locale=en_US&access_token=USL5HS8u7H3aid9XbjiSJghYILhGIK9dgV`,
         {
           method: "GET",
           headers: {
@@ -28,7 +28,7 @@ function Home() {
           fetch(
             "https://us.api.blizzard.com/data/wow/item/" +
               json.id +
-              `?namespace=static-classic-us&locale=en_US&access_token=USmlJU6wyklYR5GgppcFFOHfST3JgvGcKA`,
+              `?namespace=static-classic-us&locale=en_US&access_token=USL5HS8u7H3aid9XbjiSJghYILhGIK9dgV`,
             {
               method: "GET",
               headers: {
